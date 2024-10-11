@@ -84,14 +84,14 @@ void Error_Handler(void);
 #define b_GPIO_Port GPIOB
 #define c_Pin GPIO_PIN_2
 #define c_GPIO_Port GPIOB
-#define D_Pin GPIO_PIN_10
-#define D_GPIO_Port GPIOB
-#define E_Pin GPIO_PIN_11
-#define E_GPIO_Port GPIOB
-#define F_Pin GPIO_PIN_12
-#define F_GPIO_Port GPIOB
-#define G_Pin GPIO_PIN_13
-#define G_GPIO_Port GPIOB
+#define d2_Pin GPIO_PIN_10
+#define d2_GPIO_Port GPIOB
+#define e2_Pin GPIO_PIN_11
+#define e2_GPIO_Port GPIOB
+#define f2_Pin GPIO_PIN_12
+#define f2_GPIO_Port GPIOB
+#define g2_Pin GPIO_PIN_13
+#define g2_GPIO_Port GPIOB
 #define RED_LED2_Pin GPIO_PIN_8
 #define RED_LED2_GPIO_Port GPIOA
 #define YEL_LED2_Pin GPIO_PIN_9
@@ -106,12 +106,12 @@ void Error_Handler(void);
 #define f_GPIO_Port GPIOB
 #define g_Pin GPIO_PIN_6
 #define g_GPIO_Port GPIOB
-#define A_Pin GPIO_PIN_7
-#define A_GPIO_Port GPIOB
-#define B_Pin GPIO_PIN_8
-#define B_GPIO_Port GPIOB
-#define C_Pin GPIO_PIN_9
-#define C_GPIO_Port GPIOB
+#define a2_Pin GPIO_PIN_7
+#define a2_GPIO_Port GPIOB
+#define b2_Pin GPIO_PIN_8
+#define b2_GPIO_Port GPIOB
+#define c2_Pin GPIO_PIN_9
+#define c2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

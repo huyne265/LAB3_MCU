@@ -1,0 +1,11 @@
+7segment.c:12:6:clear7SEG	8	static
+7segment.c:21:6:writeEn	16	static
+7segment.c:43:6:display7SEG	16	static
+7segment.c:141:6:displayMode	16	static
+7segment.c:238:6:updateBuffer	8	static
+7segment.c:297:6:displayBuffer2	16	static
+7segment.c:319:6:displayBuffer	16	static
+7segment.c:343:6:RunSeg	8	static
+7segment.c:381:6:RunSegMode2	8	static
+7segment.c:410:6:RunSegMode3	8	static
+7segment.c:439:6:RunSegMode4	8	static

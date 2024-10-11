@@ -5,7 +5,10 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../Core/Src/7segment.c \
 ../Core/Src/button.c \
+../Core/Src/fsm_automatic.c \
+../Core/Src/fsm_mode2.c \
 ../Core/Src/global.c \
 ../Core/Src/main.c \
 ../Core/Src/software_timer.c \
@@ -16,7 +19,10 @@ C_SRCS += \
 ../Core/Src/system_stm32f1xx.c 
 
 OBJS += \
+./Core/Src/7segment.o \
 ./Core/Src/button.o \
+./Core/Src/fsm_automatic.o \
+./Core/Src/fsm_mode2.o \
 ./Core/Src/global.o \
 ./Core/Src/main.o \
 ./Core/Src/software_timer.o \
@@ -27,7 +33,10 @@ OBJS += \
 ./Core/Src/system_stm32f1xx.o 
 
 C_DEPS += \
+./Core/Src/7segment.d \
 ./Core/Src/button.d \
+./Core/Src/fsm_automatic.d \
+./Core/Src/fsm_mode2.d \
 ./Core/Src/global.d \
 ./Core/Src/main.d \
 ./Core/Src/software_timer.d \

@@ -5,66 +5,101 @@
  *      Author: ADMIN
  */
 #include "button.h"
+#include "main.h"
+#include "global.h"
 
-int KeyReg0 = NORMAL_STATE;
-int KeyReg1 = NORMAL_STATE;
-int KeyReg2 = NORMAL_STATE;
-int KeyReg3 = NORMAL_STATE;
+#define NUM_BUTTON 3
 
-int TimeOutForKeyPress =  500;
-int button1_pressed[] = 0;
-int button1_long_pressed[] = 0;
-int button1_flag[] = 0;
+int KeyReg0[NUM_BUTTON];
+int KeyReg1[NUM_BUTTON];
+int KeyReg2[NUM_BUTTON];
+int KeyReg3[NUM_BUTTON];
+
+int TimeOutForKeyPress[NUM_BUTTON];
+int button_pressed[NUM_BUTTON];
+int button_long_pressed[NUM_BUTTON];
+int button_flag[NUM_BUTTON];
+
+void setButton(int i){
+		 KeyReg0[i] = NORMAL_STATE;
+		 KeyReg1[i] = NORMAL_STATE;
+		 KeyReg2[i] = NORMAL_STATE;
+		 KeyReg3[i] = NORMAL_STATE;
+
+		 TimeOutForKeyPress[i] =  500;
+		 button_pressed[i] = 0;
+		 button_long_pressed[i] = 0;
+		 button_flag[i] = 0;
+}
+
+
+GPIO_TypeDef* button_ports[] = {Button1_GPIO_Port,Button2_GPIO_Port,Button3_GPIO_Port};
+uint16_t button_pins[] = {Button1_Pin, Button2_Pin, Button3_Pin};
 
 int isButtonPressed( int index ){
-	if(button1_flag == 1){
-		button1_flag = 0;
+	if(button_flag[index] == 1){
+		if(index == 0) {
+			mode++;
+			setTimer(2, 10); // for 7SEG
+			setTimer(3, 510); //for 7SEG
+
+			for(int i = 0 ; i < 6; i++) temp[i] = led_buffer[i];
+		}
+		if(mode > 4) {
+			status = INIT;
+			mode = 1;
+			setTimer(0,0);
+		}
+		button_flag[index] = 0;
 		return 1;
 	}
 	return 0;
 }
 
-int isButton1LongPressed(){
-	if(button1_long_pressed == 1){
-		button1_long_pressed = 0;
+int isButton1LongPressed(int index){
+	if(button_long_pressed[index] == 1){
+		button_long_pressed[index] = 0;
 		return 1;
 	}
 	return 0;
 }
 
-void subKeyProcess(){
+void subKeyProcess(int index){
 	//TODO
 	//HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
-	button1_flag = 1;
+	button_flag[index] = 1;
 }
 
 void getKeyInput(){
-  KeyReg2 = KeyReg1;
-  KeyReg1 = KeyReg0;
+	for(int i = 0; i < NUM_BUTTON; i++){
+		KeyReg2[i] = KeyReg1[i];
+		KeyReg1[i] = KeyReg0[i];
+
   // Add your key
-  KeyReg0 = HAL_GPIO_ReadPin(BUTTON_GPIO_Port, BUTTON_Pin);
+	  KeyReg0[i] = HAL_GPIO_ReadPin(button_ports[i], button_pins[i]);
 
-  if ((KeyReg1 == KeyReg0) && (KeyReg1 == KeyReg2)){
-    if (KeyReg2 != KeyReg3){
-      KeyReg3 = KeyReg2;
+	  if ((KeyReg1[i] == KeyReg0[i]) && (KeyReg1[i] == KeyReg2[i])){
+		if (KeyReg2[i] != KeyReg3[i]){
+		  KeyReg3[i] = KeyReg2[i];
 
-      if (KeyReg3 == PRESSED_STATE){
-        TimeOutForKeyPress = 500;
-        //subKeyProcess();
-        button1_flag = 1;
-      }
+		  if (KeyReg3[i] == PRESSED_STATE){
+			TimeOutForKeyPress[i] = 500;
+			//subKeyProcess();
+			button_flag[i] = 1;
+		  }
 
-    }else{
-        TimeOutForKeyPress --;
-        if (TimeOutForKeyPress == 0){
-        	TimeOutForKeyPress = 500;
-        	if (KeyReg3 == PRESSED_STATE){
-        		//subKeyProcess();
-        		button1_flag = 1;
-        	}
-        }
-    }
-  }
+		}else{
+			TimeOutForKeyPress[i] --;
+			if (TimeOutForKeyPress[i] == 0){
+				TimeOutForKeyPress[i] = 500;
+				if (KeyReg3[i] == PRESSED_STATE){
+					//subKeyProcess();
+					button_flag[i] = 1;
+				}
+			}
+		}
+	  }
+	}
 }
 
 
