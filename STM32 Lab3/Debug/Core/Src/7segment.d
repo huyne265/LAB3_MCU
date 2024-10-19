@@ -25,7 +25,7 @@ Core/Src/7segment.o: ../Core/Src/7segment.c ../Core/Inc/7segment.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
  ../Core/Inc/global.h ../Core/Inc/main.h ../Core/Inc/button.h \
  ../Core/Inc/software_timer.h ../Core/Inc/7segment.h \
- ../Core/Inc/fsm_automatic.h ../Core/Inc/global.h ../Core/Inc/fsm_mode2.h
+ ../Core/Inc/fsm_automatic.h ../Core/Inc/global.h
 
 ../Core/Inc/7segment.h:
 
@@ -92,5 +92,3 @@ Core/Src/7segment.o: ../Core/Src/7segment.c ../Core/Inc/7segment.h \
 ../Core/Inc/fsm_automatic.h:
 
 ../Core/Inc/global.h:
-
-../Core/Inc/fsm_mode2.h:

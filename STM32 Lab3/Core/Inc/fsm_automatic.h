@@ -10,9 +10,7 @@
 
 #include "global.h"
 
-void initMode3();
-void initMode4();
-
+void initState();
 void fsm_automatic_run();
 
 #endif /* INC_FSM_AUTOMATIC_H_ */

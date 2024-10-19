@@ -40,15 +40,16 @@ int isButtonPressed( int index ){
 	if(button_flag[index] == 1){
 		if(index == 0) {
 			mode++;
-			setTimer(2, 10); // for 7SEG
-			setTimer(3, 510); //for 7SEG
+			setTimer(2, 50); // for 7SEG
+			setTimer(3, 100); //for 7SEG
 
 			for(int i = 0 ; i < 6; i++) temp[i] = led_buffer[i];
 		}
 		if(mode > 4) {
 			status = INIT;
 			mode = 1;
-			setTimer(0,0);
+			setTimer(2, 10); // for 7SEG
+			setTimer(3, 510); //for 7SEG
 		}
 		button_flag[index] = 0;
 		return 1;

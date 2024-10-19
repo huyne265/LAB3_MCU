@@ -13,7 +13,6 @@
 #include "software_timer.h"
 #include "7segment.h"
 #include "fsm_automatic.h"
-#include "fsm_mode2.h"
 
 #define INIT 1
 #define RED_GREEN 2

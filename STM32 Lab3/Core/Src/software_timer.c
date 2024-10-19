@@ -13,7 +13,7 @@ int timer_counter[MAX_COUNTER];
 int timer_flag[MAX_COUNTER];
 
 void setTimer(int index, int duration){
-	timer_counter[index] = duration/10;
+	timer_counter[index] = duration/CYCLE;
 	timer_flag[index] = 0;
 }
 

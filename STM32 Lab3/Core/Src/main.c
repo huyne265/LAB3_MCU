@@ -57,27 +57,6 @@ static void MX_TIM2_Init(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
-void initState(){
-	clear7SEG();
-	writeEn(-1);
-
-	HAL_GPIO_WritePin(a2_GPIO_Port, a2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(b2_GPIO_Port, b2_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(c2_GPIO_Port, c2_Pin, GPIO_PIN_RESET);
-	HAL_GPIO_WritePin(d2_GPIO_Port, d2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(e2_GPIO_Port, e2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(f2_GPIO_Port, f2_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(g2_GPIO_Port, g2_Pin, GPIO_PIN_SET);
-
-	HAL_GPIO_WritePin(RED_LED1_GPIO_Port, RED_LED1_Pin, 1);
-	HAL_GPIO_WritePin(GREEN_LED1_GPIO_Port, GREEN_LED1_Pin, 1);
-	HAL_GPIO_WritePin(YEL_LED1_GPIO_Port, YEL_LED1_Pin, 1);
-	HAL_GPIO_WritePin(RED_LED2_GPIO_Port, RED_LED2_Pin, 1);
-	HAL_GPIO_WritePin(GREEN_LED2_GPIO_Port, GREEN_LED2_Pin, 1);
-	HAL_GPIO_WritePin(YEL_LED2_GPIO_Port, YEL_LED2_Pin, 1);
-}
-
-
 /* USER CODE END 0 */
 
 /**
@@ -123,13 +102,10 @@ int main(void)
 
   setTimer(2, 10); // for 7SEG
   setTimer(3, 510);
-  setTimer(4, 1000);// for updateBuffer
   while (1)
   {
     /* USER CODE END WHILE */
 	fsm_automatic_run();
-
-
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

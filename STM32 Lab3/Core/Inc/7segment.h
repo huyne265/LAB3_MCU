@@ -9,12 +9,13 @@
 #define INC_7SEGMENT_H_
 
 void clear7SEG();
+void clear7SEG2();
 void display7SEG(int num);
 void writeEn(int index);
 void updateBuffer();
 void displayBuffer(int index);
 void displayBuffer2(int index);
-void displayMode(int mode);
+void display7SEG2(int mode);
 
 void RunSeg();
 void RunSegMode2();
