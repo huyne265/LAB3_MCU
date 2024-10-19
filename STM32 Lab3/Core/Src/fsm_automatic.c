@@ -139,6 +139,7 @@ void fsm_automatic_run(){
 				HAL_GPIO_WritePin(GREEN_LED2_GPIO_Port, GREEN_LED2_Pin, 1);
 			}
 			RunSegMode4();
+			checkTime();
 			break;
 		default:
 			break;
